@@ -88,6 +88,7 @@
 			drawPaddle(leftPaddle.x, leftPaddle.y);
 			drawPaddle(rightPaddle.x, rightPaddle.y);
 			drawBall(ball.x, ball.y);
+			drawScore();
 
 			update();
 		}
@@ -114,6 +115,13 @@
 			draw();
 			aiMove();
 			requestAnimationFrame(gameLoop);
+		}
+
+		function drawScore() {
+			ctx.font = "24px Arial";
+			ctx.fillStyle = "#fff";
+			ctx.fillText(leftPaddle.score, canvas.width / 4, 30);
+			ctx.fillText(rightPaddle.score, (3 * canvas.width) / 4, 30);
 		}
 
 		gameLoop();
